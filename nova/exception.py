@@ -483,6 +483,14 @@ class NetworkNotFound(NotFound):
     message = _("Network %(network_id)s could not be found.")
 
 
+class NetworkFoundMultipleTimes(NotFound):
+    message = _("Network %(network_id)s matched multiple networks!")
+
+
+class NetworkBusy(NovaException):
+    message = _("Network %(network)s has active ports, cannot delete.")
+
+
 class NetworkNotFoundForBridge(NetworkNotFound):
     message = _("Network could not be found for bridge %(bridge)s")
 

@@ -734,6 +734,7 @@ class DbQuotaDriverTestCase(test.TestCase):
                 injected_file_content_bytes=10 * 1024,
                 injected_file_path_bytes=255,
                 security_groups=10,
+                networks=3,
                 security_group_rules=20,
                 key_pairs=100,
                 ))
@@ -767,6 +768,7 @@ class DbQuotaDriverTestCase(test.TestCase):
                 injected_file_content_bytes=5 * 1024,
                 injected_file_path_bytes=255,
                 security_groups=10,
+                networks=3,
                 security_group_rules=20,
                 key_pairs=100,
                 ))
@@ -865,6 +867,11 @@ class DbQuotaDriverTestCase(test.TestCase):
                     in_use=0,
                     reserved=0,
                     ),
+                networks=dict(
+                    limit=3,
+                    in_use=0,
+                    reserved=0,
+                    ),
                 security_groups=dict(
                     limit=10,
                     in_use=0,
@@ -930,6 +937,11 @@ class DbQuotaDriverTestCase(test.TestCase):
                     ),
                 injected_file_path_bytes=dict(
                     limit=127,
+                    in_use=0,
+                    reserved=0,
+                    ),
+                networks=dict(
+                    limit=3,
                     in_use=0,
                     reserved=0,
                     ),
@@ -999,6 +1011,11 @@ class DbQuotaDriverTestCase(test.TestCase):
                     ),
                 injected_file_path_bytes=dict(
                     limit=127,
+                    in_use=0,
+                    reserved=0,
+                    ),
+                networks=dict(
+                    limit=3,
                     in_use=0,
                     reserved=0,
                     ),
@@ -1082,6 +1099,9 @@ class DbQuotaDriverTestCase(test.TestCase):
                     ),
                 injected_file_path_bytes=dict(
                     limit=127,
+                    ),
+                networks=dict(
+                    limit=3,
                     ),
                 security_groups=dict(
                     limit=10,

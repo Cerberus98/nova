@@ -10,6 +10,7 @@
         "metadata_items": 128,
         "ram": 51200,
         "security_group_rules": 20,
-        "security_groups": 45
+        "security_groups": 45,
+        "networks": 3
     }
 }

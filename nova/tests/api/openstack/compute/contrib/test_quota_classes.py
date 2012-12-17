@@ -27,7 +27,7 @@ def quota_set(class_name):
             'ram': 51200, 'floating_ips': 10, 'instances': 10,
             'injected_files': 5, 'cores': 20,
             'injected_file_content_bytes': 10240, 'security_groups': 10,
-            'security_group_rules': 20, 'key_pairs': 100,
+            'security_group_rules': 20, 'key_pairs': 100, 'networks': 3,
             'injected_file_path_bytes': 255}}
 
 
@@ -49,6 +49,7 @@ class QuotaClassSetsTest(test.TestCase):
             'injected_file_content_bytes': 10240,
             'security_groups': 10,
             'security_group_rules': 20,
+            'networks': 3,
             'key_pairs': 100,
             }
 
@@ -91,7 +92,7 @@ class QuotaClassSetsTest(test.TestCase):
                                     'injected_file_path_bytes': 255,
                                     'security_groups': 10,
                                     'security_group_rules': 20,
-                                    'key_pairs': 100,
+                                    'key_pairs': 100, 'networks': 3
                                     }}
 
         req = fakes.HTTPRequest.blank(
@@ -135,6 +136,7 @@ class QuotaTemplateXMLSerializerTest(test.TestCase):
                 injected_files=80,
                 security_groups=10,
                 security_group_rules=20,
+                networks=3,
                 key_pairs=100,
                 cores=90))
         text = self.serializer.serialize(exemplar)

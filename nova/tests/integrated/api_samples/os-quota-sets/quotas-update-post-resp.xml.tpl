@@ -11,4 +11,5 @@
   <ram>51200</ram>
   <security_group_rules>20</security_group_rules>
   <security_groups>45</security_groups>
+  <networks>3</networks>
 </quota_set>

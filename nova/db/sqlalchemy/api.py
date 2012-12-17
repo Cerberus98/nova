@@ -2149,7 +2149,6 @@ def network_get(context, network_id, session=None, project_only='allow_none'):
 @require_context
 def network_get_all(context):
     result = model_query(context, models.Network, read_deleted="no").all()
-
     if not result:
         raise exception.NoNetworksFound()
 

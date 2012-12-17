@@ -30,7 +30,8 @@ def quota_set(id):
             'instances': 10, 'injected_files': 5, 'cores': 20,
             'injected_file_content_bytes': 10240,
             'security_groups': 10, 'security_group_rules': 20,
-            'key_pairs': 100, 'injected_file_path_bytes': 255}}
+            'key_pairs': 100, 'injected_file_path_bytes': 255,
+            'networks': 3}}
 
 
 class QuotaSetsTest(test.TestCase):
@@ -52,6 +53,7 @@ class QuotaSetsTest(test.TestCase):
             'security_groups': 10,
             'security_group_rules': 20,
             'key_pairs': 100,
+            'networks': 3
             }
 
         quota_set = self.controller._format_quota_set('1234', raw_quota_set)
@@ -89,6 +91,7 @@ class QuotaSetsTest(test.TestCase):
                     'security_groups': 10,
                     'security_group_rules': 20,
                     'key_pairs': 100,
+                    'networks': 3
                     }}
 
         self.assertEqual(res_dict, expected)
@@ -113,6 +116,7 @@ class QuotaSetsTest(test.TestCase):
                               'injected_file_path_bytes': 255,
                               'security_groups': 10,
                               'security_group_rules': 20,
+                              'networks': 3,
                               'key_pairs': 100}}
 
         req = fakes.HTTPRequest.blank('/v2/fake4/os-quota-sets/update_me',
@@ -128,6 +132,7 @@ class QuotaSetsTest(test.TestCase):
                               'injected_file_content_bytes': 10240,
                               'security_groups': 10,
                               'security_group_rules': 20,
+                              'networks': 3,
                               'key_pairs': 100}}
 
         req = fakes.HTTPRequest.blank('/v2/fake4/os-quota-sets/update_me')
@@ -164,6 +169,7 @@ class QuotaXMLSerializerTest(test.TestCase):
                 injected_files=80,
                 security_groups=10,
                 security_group_rules=20,
+                networks=3,
                 key_pairs=100,
                 cores=90))
         text = self.serializer.serialize(exemplar)

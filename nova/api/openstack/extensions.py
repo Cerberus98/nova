@@ -391,6 +391,8 @@ def extension_authorizer(api_name, extension_name):
             target = {'project_id': context.project_id,
                       'user_id': context.user_id}
         action = '%s_extension:%s' % (api_name, extension_name)
+        LOG.critical(action)
+        LOG.critical(target)
         nova.policy.enforce(context, action, target)
     return authorize
 
